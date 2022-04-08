@@ -261,6 +261,20 @@ export const StyledLabel = styled.label`
   }}
 `;
 
+export const StyledP = styled.p`
+  ${({ isDarkMode }) => {
+    if (isDarkMode) {
+      return `
+            color: #fff;
+            `;
+    }
+  }}
+
+  &.form--errors {
+    color: red !important;
+  }
+`;
+
 export const StyledSelect = styled.select`
   ${({ isDarkMode }) => {
     if (isDarkMode) {

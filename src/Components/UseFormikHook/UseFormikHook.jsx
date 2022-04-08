@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 import {
   StyledDiv,
   StyledInput,
@@ -10,6 +11,7 @@ import {
   StyledB,
   StyledSelect,
   StyledOption,
+  StyledP,
 } from "../../Utils";
 
 export const UseFormikHook = (props) => {
@@ -23,11 +25,21 @@ export const UseFormikHook = (props) => {
       status: "",
       country: "",
     },
+    validationSchema: Yup.object({
+      username: Yup.string()
+        .max(10, "username must be less than on equal to 10 characters!")
+        .required("this is required field!"),
+      fullname: Yup.string().required("this is required field!"),
+      email: Yup.string()
+        .email("please provide a valid email!")
+        .required("this is required field!"),
+      status: Yup.string().required("this is required field!"),
+      country: Yup.string().required("this is required field!"),
+    }),
     onSubmit: (values) => {
       console.log("Form Submitted::", values);
     },
   });
-
   return (
     <StyledDiv
       className="formik--wrapper container my-2"
@@ -51,8 +63,12 @@ export const UseFormikHook = (props) => {
             aria-describedby="emailHelp"
             isDarkMode={isDarkMode}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.username}
           />
+          {formik.touched.username && formik.errors.username && (
+            <StyledP className="form--errors">{formik.errors.username}</StyledP>
+          )}
         </StyledDiv>
 
         {/* FULL NAME */}
@@ -72,8 +88,12 @@ export const UseFormikHook = (props) => {
             aria-describedby="emailHelp"
             isDarkMode={isDarkMode}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.fullname}
           />
+          {formik.touched.fullname && formik.errors.fullname && (
+            <StyledP className="form--errors">{formik.errors.username}</StyledP>
+          )}
         </StyledDiv>
 
         {/* EMAIL */}
@@ -93,8 +113,12 @@ export const UseFormikHook = (props) => {
             aria-describedby="emailHelp"
             isDarkMode={isDarkMode}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.email}
           />
+          {formik.touched.email && formik.errors.email && (
+            <StyledP className="form--errors">{formik.errors.username}</StyledP>
+          )}
         </StyledDiv>
 
         {/* STATUS */}
@@ -161,6 +185,14 @@ export const UseFormikHook = (props) => {
               Coder
             </StyledLabel>
           </StyledDiv>
+          {formik.touched.status && formik.errors.status && (
+            <>
+              <br />
+              <StyledP className="form--errors">
+                {formik.errors.username}
+              </StyledP>
+            </>
+          )}
         </StyledDiv>
 
         {/* SELECT */}
@@ -170,6 +202,7 @@ export const UseFormikHook = (props) => {
             name="country"
             aria-label="Default select example"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             isDarkMode={isDarkMode}
           >
             <StyledOption isDarkMode={isDarkMode} value="">
@@ -185,6 +218,9 @@ export const UseFormikHook = (props) => {
               Dubai
             </StyledOption>
           </StyledSelect>
+          {formik.touched.country && formik.errors.country && (
+            <StyledP className="form--errors">{formik.errors.username}</StyledP>
+          )}
         </StyledDiv>
 
         <StyledButton
