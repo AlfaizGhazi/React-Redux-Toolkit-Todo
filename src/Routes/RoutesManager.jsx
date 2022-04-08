@@ -6,6 +6,7 @@ import {
   TodoPage,
   ApiTesting,
   Workout,
+  Forms,
 } from "../Screens";
 
 const RoutesManager = (props) => {
@@ -35,6 +36,11 @@ const RoutesManager = (props) => {
       routeName: "ApiTestingPage",
       path: "apitesting",
       element: <ApiTesting isDarkMode={isDarkMode} />,
+    },
+    {
+      routeName: "FormsPage",
+      path: "forms",
+      element: <Forms isDarkMode={isDarkMode} />,
     },
     {
       routeName: "WorkoutPage",

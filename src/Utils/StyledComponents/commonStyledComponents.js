@@ -117,9 +117,29 @@ export const StyledDiv = styled.div`
     background-color: #212526;
     height: 50px;
   }
+
+  &.formik--wrapper {
+    width: 50%;
+  }
+
+  &.form--status--wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: inherit;
+  }
 `;
 
 export const StyledSpan = styled.span`
+  ${({ isDarkMode }) => {
+    if (isDarkMode) {
+      return `
+            color: #fff;
+            `;
+    }
+  }}
+`;
+
+export const StyledB = styled.b`
   ${({ isDarkMode }) => {
     if (isDarkMode) {
       return `
@@ -143,8 +163,9 @@ export const StyledInput = styled.input`
   ${({ isDarkMode }) => {
     if (isDarkMode) {
       return `
-            color: #fff;
+            color: #fff !important;
             background-color: #0A1929 !important;
+            border-color: #fff;
             `;
     }
   }}
@@ -169,6 +190,7 @@ export const StyledTable = styled.table`
     }
   }}
 `;
+
 export const StyledThead = styled.thead`
   ${({ isDarkMode }) => {
     if (isDarkMode) {
@@ -178,6 +200,7 @@ export const StyledThead = styled.thead`
     }
   }}
 `;
+
 export const StyledTbody = styled.tbody`
   ${({ isDarkMode }) => {
     if (isDarkMode) {
@@ -187,6 +210,7 @@ export const StyledTbody = styled.tbody`
     }
   }}
 `;
+
 export const StyledTr = styled.tr`
   ${({ isDarkMode }) => {
     if (isDarkMode) {
@@ -196,6 +220,7 @@ export const StyledTr = styled.tr`
     }
   }}
 `;
+
 export const StyledTh = styled.th`
   ${({ isDarkMode }) => {
     if (isDarkMode) {
@@ -205,11 +230,56 @@ export const StyledTh = styled.th`
     }
   }}
 `;
+
 export const StyledTd = styled.td`
   ${({ isDarkMode }) => {
     if (isDarkMode) {
       return `
             color: #fff;
+            `;
+    }
+  }}
+`;
+
+export const StyledForm = styled.form`
+  ${({ isDarkMode }) => {
+    if (isDarkMode) {
+      return `
+            color: #fff;
+            `;
+    }
+  }}
+`;
+
+export const StyledLabel = styled.label`
+  ${({ isDarkMode }) => {
+    if (isDarkMode) {
+      return `
+            color: #fff;
+            `;
+    }
+  }}
+`;
+
+export const StyledSelect = styled.select`
+  ${({ isDarkMode }) => {
+    if (isDarkMode) {
+      return `
+            color: #fff !important;
+            background-color: #0A1929 !important;
+            border-color: #fff;
+            `;
+    }
+  }}
+`;
+
+export const StyledOption = styled.option`
+  ${({ isDarkMode }) => {
+    if (isDarkMode) {
+      return `
+            color: #fff !important;
+            background-color: #0A1929 !important;
+            border-color: #fff;
             `;
     }
   }}

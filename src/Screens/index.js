@@ -3,3 +3,4 @@ export * from "./HomePage";
 export * from "./TodoPage";
 export * from "./ApiTesting";
 export * from "./Workout";
+export * from "./Forms";
