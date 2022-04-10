@@ -37,6 +37,7 @@ export const UseFormikHook = (props) => {
       country: Yup.string().required("this is required field!"),
     }),
     onSubmit: (values) => {
+      alert("Form Submitted! Check Console");
       console.log("Form Submitted::", values);
     },
   });
